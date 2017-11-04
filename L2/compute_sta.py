@@ -28,7 +28,7 @@ def compute_sta(stim, rho, num_timesteps):
 
     # Fill in this value. Note that you should not count spikes that occur
     # before 300 ms into the recording.
-    num_spikes = 
+    num_spikes = spike_times.shape[0] 
     
     # Compute the spike-triggered average of the spikes found.
     # To do this, compute the average of all of the vectors
@@ -38,6 +38,8 @@ def compute_sta(stim, rho, num_timesteps):
     # spike. The average of these vectors should be completed in an
     # element-wise manner.
     # 
-    # Your code goes here.
+    for sp in spike_times:
+        sta += stim[sp-num_timesteps:sp]
+    sta /= num_spikes
     
     return sta
