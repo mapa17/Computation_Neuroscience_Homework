@@ -23,8 +23,8 @@ rho = data['rho']
 
 
 # Fill in these values
-sampling_period = 1
-num_timesteps = 300
+sampling_period = (1.0/500.0) * 1000.0 # in ms -> 2ms
+num_timesteps = 150 # we want 300ms
 
 sta = compute_sta(stim, rho, num_timesteps)
 
